@@ -41,19 +41,19 @@ if (-not (Test-Path $sshKeyPath)) {
 # Dotfiles repo
 #
 
-# # Clone the repo if not already cloned
-# $repoPath = "$env:USERPROFILE\.dotfiles"
-# $repoUrl = "git@github.com:your-username/your-private-repo.git"
-#
-# if (-not (Test-Path $repoPath)) {
-#     Write-Host "Cloning private dotfiles repo into $repoPath..."
-#     git clone $repoUrl $repoPath
-#     if ($LASTEXITCODE -eq 0) {
-#         Write-Host "`nRepository successfully cloned."
-#     } else {
-#         Write-Host "`nFailed to clone the repository. Check your SSH access and repo URL."
-#     }
-# }
+# Clone the repo if not already cloned
+$repoPath = "$env:USERPROFILE\.dotfiles"
+$repoUrl = "git@github.com:simifalaye/dotfiles-windows.git"
+
+if (-not (Test-Path $repoPath)) {
+    Write-Host "Cloning dotfiles repo into $repoPath..."
+    git clone $repoUrl $repoPath
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "`nRepository successfully cloned."
+    } else {
+        Write-Host "`nFailed to clone the repository. Check your SSH access and repo URL."
+    }
+}
 
 #
 # WSL

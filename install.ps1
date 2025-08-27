@@ -4,9 +4,19 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit 1
 }
 
-. "$PSScriptRoot\modules\settings\install.ps1"
-. "$PSScriptRoot\modules\default-apps\install.ps1"
-. "$PSScriptRoot\modules\wezterm\install.ps1"
-. "$PSScriptRoot\modules\wsl\install.ps1"
+function RunModule {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$ModuleName
+    )
+
+    . "$PSScriptRoot\modules\$ModuleName\install.ps1"
+}
+
+RunModule -ModuleName "settings"
+RunModule -ModuleName "default-apps"
+RunModule -ModuleName "chrome"
+RunModule -ModuleName "wezterm"
+RunModule -ModuleName "wsl"
 
 Write-Host "Bootstrap complete! Note: Some changes may require a restart to take effect." -ForegroundColor "Green"

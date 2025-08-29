@@ -4,6 +4,8 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit 1
 }
 
+. "$PSScriptRoot\lib\common.ps1"
+
 function RunModule {
     param (
         [Parameter(Mandatory = $true)]
@@ -16,7 +18,13 @@ function RunModule {
 RunModule -ModuleName "settings"
 RunModule -ModuleName "default-apps"
 RunModule -ModuleName "chrome"
+RunModule -ModuleName "powertoys"
 RunModule -ModuleName "wezterm"
+RunModule -ModuleName "win32yank"
 RunModule -ModuleName "wsl"
 
-Write-Host "Bootstrap complete! Note: Some changes may require a restart to take effect." -ForegroundColor "Green"
+Write-Host "Bootstrap complete!" -ForegroundColor "Green"
+$rebootRequired = Test-PendingReboot
+if ($rebootRequired.Pending) {
+    Write-Warn "Reboot pending due to: $($rebootRequired.Reason)"
+}

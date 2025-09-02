@@ -36,4 +36,4 @@ if (-not $ubuntuInstalled) {
 }
 
 # Install ssh keys
-wsl -d Ubuntu -- bash -c "mkdir -p ~/.ssh && cp /mnt/c/Users/$env:USERNAME/.ssh/id* ~/.ssh && chmod 600 ~/.ssh/id* && chmod 700 ~/.ssh"
+wsl -d Ubuntu -- bash -c "mkdir -p ~/.ssh && cp /mnt/c/Users/'$($env:USERNAME)'/.ssh/id* ~/.ssh && chmod 600 ~/.ssh/id* && chmod 700 ~/.ssh"

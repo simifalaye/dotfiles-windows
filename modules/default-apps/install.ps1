@@ -48,15 +48,22 @@ foreach ($app in $appNames) {
     # Remove installed packages
     $matchedPackages = $installedPackages | Where-Object { $_.Name -like $app }
     foreach ($pkg in $matchedPackages) {
-        Write-Info "Removing installed app: $($pkg.Name)" -ForegroundColor Yellow
+        Write-Info "Removing installed app: $($pkg.Name)"
         Remove-AppxPackage -Package $pkg.PackageFullName -AllUsers -ErrorAction SilentlyContinue
     }
 
     # Remove provisioned packages (for new users)
     $matchedProvisioned = $provisionedPackages | Where-Object { $_.DisplayName -like $app }
     foreach ($prov in $matchedProvisioned) {
-        Write-Info "Removing provisioned app: $($prov.DisplayName)" -ForegroundColor DarkYellow
-        Remove-AppxProvisionedPackage -Online -PackageName $prov.PackageName -AllUsers -ErrorAction SilentlyContinue
+        if ($prov.PackageName) {
+            Write-Info "Removing provisioned app: $($prov.PackageName)"
+            try {
+                Remove-AppxProvisionedPackage -Online -PackageName $prov.PackageName -AllUsers -ErrorAction Stop
+            } catch {
+                Write-Warn "Failed to remove provisioned package: $($prov.PackageName). $_"
+            }
+        } else {
+            Write-Warn "Provisioned package has no PackageName for app: $($prov.DisplayName)"
+        }
     }
 }
-

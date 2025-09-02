@@ -17,7 +17,7 @@ function RunModule {
 
 RunModule -ModuleName "settings"
 RunModule -ModuleName "default-apps"
-RunModule -ModuleName "chrome"
+# RunModule -ModuleName "chrome"
 RunModule -ModuleName "powertoys"
 RunModule -ModuleName "wezterm"
 RunModule -ModuleName "win32yank"

@@ -15,7 +15,11 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 #
 
 # Install git
-winget install --id Git.Git --accept-package-agreements --accept-source-agreements
+$isGitInstalled = winget list --id Git.Git 2>$null | Select-String Git.Git
+if (-not $isGitInstalled) {
+    winget install --id Git.Git --accept-package-agreements --accept-source-agreements
+    $env:Path += ";C:\Program Files\Git\cmd"
+}
 
 #
 # SSH
@@ -30,7 +34,8 @@ if (-not (Test-Path $sshKeyPath)) {
     if (-not (Test-Path $sshDir)) {
         New-Item -ItemType Directory -Path $sshDir | Out-Null
     }
-
+    
+    ssh-keygen -t ed25519 -C $SshEmail -f $sshKeyPath
     Write-Host "`nSSH key generated at $sshKeyPath"
     Write-Host "`nAdd the following public key to your Git provider:"
     Get-Content "$sshKeyPath.pub"
@@ -84,3 +89,4 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
+

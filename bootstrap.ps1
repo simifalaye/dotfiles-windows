@@ -30,7 +30,10 @@ $sshDir = "$env:USERPROFILE\.ssh"
 $sshKeyPath = Join-Path $sshDir "id_ed25519"
 
 if (-not (Test-Path $sshKeyPath)) {
-    Write-Host "SSH key not found. Generating a new ed25519 key..."
+    Write-Host "SSH key not found. Generating a new ed25519 key..."  
+    if (-not $SshEmail) {
+        $SshEmail = Read-Host "Enter a SSH email to use"
+    }
     if (-not (Test-Path $sshDir)) {
         New-Item -ItemType Directory -Path $sshDir | Out-Null
     }
@@ -89,4 +92,5 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
+
 

@@ -1,5 +1,3 @@
-$ErrorActionPreference = 'Stop'
-
 # Setup params
 param (
     [Parameter(Mandatory = $true)]
@@ -95,6 +93,7 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
+
 
 
 

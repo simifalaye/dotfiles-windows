@@ -1,9 +1,3 @@
-# Setup params
-param (
-    [Parameter(Mandatory = $true)]
-    [string]$SshEmail
-)
-
 # Ensure script runs with admin rights
 if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole] "Administrator")) {
     Write-Warning "Please run this script as Administrator."
@@ -31,15 +25,12 @@ $sshKeyPath = Join-Path $sshDir "id_ed25519"
 
 if (-not (Test-Path $sshKeyPath)) {
     Write-Host "SSH key not found. Generating a new ed25519 key..."  
-    if (-not $SshEmail) {
-        $SshEmail = Read-Host "Enter a SSH email to use"
-    }
+    $sshEmail = Read-Host "Enter an SSH email to use"
     if (-not (Test-Path $sshDir)) {
         New-Item -ItemType Directory -Path $sshDir | Out-Null
     }
-    Write-Host "SSH email: $SshEmail"
 
-    ssh-keygen -t ed25519 -C $SshEmail -f $sshKeyPath
+    ssh-keygen -t ed25519 -C $sshEmail -f $sshKeyPath
     Write-Host "`nSSH key generated at $sshKeyPath"
     Write-Host "`nAdd the following public key to your Git provider:"
     Get-Content "$sshKeyPath.pub"
@@ -93,6 +84,7 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
+
 
 
 

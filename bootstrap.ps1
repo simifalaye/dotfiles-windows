@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop'
+
 # Setup params
 param (
     [Parameter(Mandatory = $true)]
@@ -37,7 +39,8 @@ if (-not (Test-Path $sshKeyPath)) {
     if (-not (Test-Path $sshDir)) {
         New-Item -ItemType Directory -Path $sshDir | Out-Null
     }
-    
+    Write-Host "SSH email: $SshEmail"
+
     ssh-keygen -t ed25519 -C $SshEmail -f $sshKeyPath
     Write-Host "`nSSH key generated at $sshKeyPath"
     Write-Host "`nAdd the following public key to your Git provider:"
@@ -92,5 +95,6 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
+
 
 

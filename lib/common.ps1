@@ -67,22 +67,28 @@ function Stow-Dotfiles {
         [Parameter(Mandatory = $true)]
         [string]$PackageName,
 
-        [string]$DotfilesDir = "$PSScriptRoot\..",
+        [string]$DotfilesDir = "$PSScriptRoot\..\modules",
         [string]$TargetDir = $HOME
     )
 
     $PackagePath = Join-Path $DotfilesDir $PackageName
+    $PackagePath = Join-Path $PackagePath "dots"
 
     if (-not (Test-Path $PackagePath)) {
         Write-Error "Package '$PackageName' does not exist in dotfiles directory: $PackagePath"
         return
     }
 
-    Get-ChildItem -Path $PackagePath -Recurse | ForEach-Object {
-        $relativePath = $_.FullName.Substring($PackagePath.Length).TrimStart('\')
+    # Normalize PackagePath to avoid Substring issues
+    $PackagePath = (Resolve-Path $PackagePath).ProviderPath
+
+    Get-ChildItem -Path $PackagePath -Recurse -File | ForEach-Object {
+        $sourcePath = $_.FullName
+        $relativePath = $sourcePath.Substring($PackagePath.Length).TrimStart('\','/')
+
         $targetPath = Join-Path $TargetDir $relativePath
 
-        if (Test-Path $targetPath -or (Test-Path $targetPath -PathType Container)) {
+        if (Test-Path $targetPath) {
             Write-Warning "Skipping existing item: $targetPath"
         } else {
             $parentDir = Split-Path $targetPath -Parent
@@ -90,15 +96,9 @@ function Stow-Dotfiles {
                 New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
             }
 
-            if ($_.PSIsContainer) {
-                # Create a directory junction
-                cmd /c "mklink /J `"$targetPath`" `"$($_.FullName)`"" | Out-Null
-                Write-Host "Linked dir: $relativePath"
-            } else {
-                # Create a symbolic link
-                cmd /c "mklink `"$targetPath`" `"$($_.FullName)`"" | Out-Null
-                Write-Host "Linked file: $relativePath"
-            }
+            # Create a symbolic link for the file
+            cmd /c "mklink `"$targetPath`" `"$sourcePath`"" | Out-Null
+            Write-Host "Linked file: $relativePath"
         }
     }
 }
@@ -108,26 +108,38 @@ function Unstow-Dotfiles {
         [Parameter(Mandatory = $true)]
         [string]$PackageName,
 
-        [string]$DotfilesDir = "$PSScriptRoot\..",
+        [string]$DotfilesDir = "$PSScriptRoot\..\modules",
         [string]$TargetDir = $HOME
     )
 
     $PackagePath = Join-Path $DotfilesDir $PackageName
+    $PackagePath = Join-Path $PackagePath "dots"
 
     if (-not (Test-Path $PackagePath)) {
         Write-Error "Package '$PackageName' does not exist in dotfiles directory: $PackagePath"
         return
     }
 
-    Get-ChildItem -Path $PackagePath -Recurse | ForEach-Object {
-        $relativePath = $_.FullName.Substring($PackagePath.Length).TrimStart('\')
+    # Normalize PackagePath to avoid Substring issues
+    $PackagePath = (Resolve-Path $PackagePath).ProviderPath
+
+    Get-ChildItem -Path $PackagePath -Recurse -File | ForEach-Object {
+        $sourcePath = $_.FullName
+        $relativePath = $sourcePath.Substring($PackagePath.Length).TrimStart('\','/')
+
         $targetPath = Join-Path $TargetDir $relativePath
 
-        if (Test-Path $targetPath -or (Test-Path $targetPath -PathType Container)) {
-            Remove-Item $targetPath -Force -Recurse
-            Write-Host "Removed link: $relativePath"
+        if (Test-Path $targetPath) {
+            $item = Get-Item $targetPath -Force
+            if ($item.LinkType -eq 'SymbolicLink') {
+                # Remove the symbolic link
+                Remove-Item $targetPath -Force
+                Write-Host "Removed link: $relativePath"
+            } else {
+                Write-Warning "Not a symbolic link, skipping: $targetPath"
+            }
         } else {
-            Write-Warning "Link not found: $targetPath"
+            Write-Warning "Target does not exist, skipping: $targetPath"
         }
     }
 }

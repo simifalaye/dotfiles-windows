@@ -24,7 +24,7 @@ $sshDir = "$env:USERPROFILE\.ssh"
 $sshKeyPath = Join-Path $sshDir "id_ed25519"
 
 if (-not (Test-Path $sshKeyPath)) {
-    Write-Host "SSH key not found. Generating a new ed25519 key..."  
+    Write-Host "SSH key not found. Generating a new ed25519 key..."
     $sshEmail = Read-Host "Enter an SSH email to use"
     if (-not (Test-Path $sshDir)) {
         New-Item -ItemType Directory -Path $sshDir | Out-Null
@@ -53,6 +53,7 @@ if (-not (Test-Path $repoPath)) {
     } else {
         Write-Host "`nFailed to clone the repository. Check your SSH access and repo URL."
     }
+    git submodule update --init --recursive
 }
 
 #
@@ -84,8 +85,3 @@ if ((Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem
 } else {
     Write-Host "WSL Already enabled"
 }
-
-
-
-
-

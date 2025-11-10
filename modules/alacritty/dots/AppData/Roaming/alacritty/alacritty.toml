@@ -8,7 +8,7 @@ import = [
   # "catppuccin-latte.toml",
   # "catppuccin-frappe.toml",
   # "catppuccin-macchiato.toml",
-  "catppuccin-mocha.toml",
+  # "catppuccin-mocha.toml",
 
   # Load local config
   "alacritty-local.toml",

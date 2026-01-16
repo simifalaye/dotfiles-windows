@@ -1,0 +1,499 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{cefedc47-25a3-5baf-aa27-fad93c2bd95b}",
+    "disableAnimations": true,
+    "keybindings": 
+    [
+        {
+            "id": "Terminal.SwitchToTab0",
+            "keys": "alt+1"
+        },
+        {
+            "id": "Terminal.CloseWindow",
+            "keys": "alt+f4"
+        },
+        {
+            "id": "Terminal.MovePaneToTab7",
+            "keys": "alt+shift+8"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "Terminal.ToggleFullscreen",
+            "keys": "f11"
+        },
+        {
+            "id": "Terminal.SwitchToTab3",
+            "keys": "alt+4"
+        },
+        {
+            "id": "Terminal.NextTab",
+            "keys": "alt+]"
+        },
+        {
+            "id": "Terminal.MoveFocusLeft",
+            "keys": "alt+h"
+        },
+        {
+            "id": "Terminal.MovePaneToTab5",
+            "keys": "alt+shift+6"
+        },
+        {
+            "id": "Terminal.ToggleFullscreen",
+            "keys": "alt+enter"
+        },
+        {
+            "id": "Terminal.OpenNewWindow",
+            "keys": "ctrl+alt+shift+n"
+        },
+        {
+            "id": "Terminal.ResizePaneLeft",
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "id": "Terminal.IncreaseFontSize",
+            "keys": "ctrl+plus"
+        },
+        {
+            "id": "Terminal.DecreaseFontSize",
+            "keys": "ctrl+minus"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+n"
+        },
+        {
+            "id": "Terminal.OpenNewTab",
+            "keys": "alt+t"
+        },
+        {
+            "id": "Terminal.PrevTab",
+            "keys": "alt+["
+        },
+        {
+            "id": "Terminal.ScrollUp",
+            "keys": "alt+y"
+        },
+        {
+            "id": "Terminal.SwitchToTab1",
+            "keys": "alt+2"
+        },
+        {
+            "id": "Terminal.SwapPanePrevious",
+            "keys": "alt+shift+comma"
+        },
+        {
+            "id": "Terminal.SwitchToTab2",
+            "keys": "alt+3"
+        },
+        {
+            "id": "Terminal.SwitchToTab4",
+            "keys": "alt+5"
+        },
+        {
+            "id": "Terminal.MovePaneToTab0",
+            "keys": "alt+shift+1"
+        },
+        {
+            "id": "Terminal.SwitchToTab5",
+            "keys": "alt+6"
+        },
+        {
+            "id": "Terminal.SwitchToTab6",
+            "keys": "alt+7"
+        },
+        {
+            "id": "Terminal.OpenTabRenamer",
+            "keys": "alt+r"
+        },
+        {
+            "id": "Terminal.SwitchToTab7",
+            "keys": "alt+8"
+        },
+        {
+            "id": "Terminal.MoveTabBackward",
+            "keys": "alt+shift+["
+        },
+        {
+            "id": "Terminal.SwapPaneLeft",
+            "keys": "alt+shift+h"
+        },
+        {
+            "id": "Terminal.MoveTabForward",
+            "keys": "alt+shift+]"
+        },
+        {
+            "id": "Terminal.OpenWindowRenamer",
+            "keys": "ctrl+alt+shift+r"
+        },
+        {
+            "id": "Terminal.MovePaneToTab3",
+            "keys": "alt+shift+4"
+        },
+        {
+            "id": "Terminal.ScrollDownPage",
+            "keys": "alt+d"
+        },
+        {
+            "id": "Terminal.IdentifyWindow",
+            "keys": "ctrl+alt+shift+i"
+        },
+        {
+            "id": "Terminal.DuplicatePaneDown",
+            "keys": "alt+minus"
+        },
+        {
+            "id": "Terminal.MovePaneToTab1",
+            "keys": "alt+shift+2"
+        },
+        {
+            "id": "Terminal.DuplicatePaneRight",
+            "keys": "alt+\\"
+        },
+        {
+            "id": "Terminal.ClosePane",
+            "keys": "alt+x"
+        },
+        {
+            "id": "Terminal.SwapPaneUp",
+            "keys": "alt+shift+k"
+        },
+        {
+            "id": "Terminal.TogglePaneZoom",
+            "keys": "alt+z"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": "Terminal.RestartConnection",
+            "keys": "alt+plus"
+        },
+        {
+            "id": "Terminal.ScrollDown",
+            "keys": "alt+e"
+        },
+        {
+            "id": "Terminal.MoveFocusDown",
+            "keys": "alt+j"
+        },
+        {
+            "id": "Terminal.MoveFocusUp",
+            "keys": "alt+k"
+        },
+        {
+            "id": "Terminal.IncreaseFontSize",
+            "keys": "ctrl+numpad_plus"
+        },
+        {
+            "id": "Terminal.MoveFocusRight",
+            "keys": "alt+l"
+        },
+        {
+            "id": "Terminal.MovePaneToTab4",
+            "keys": "alt+shift+5"
+        },
+        {
+            "id": "Terminal.MoveFocusPrevious",
+            "keys": "alt+comma"
+        },
+        {
+            "id": "Terminal.ScrollUpPage",
+            "keys": "alt+u"
+        },
+        {
+            "id": "Terminal.ResizePaneUp",
+            "keys": "ctrl+alt+k"
+        },
+        {
+            "id": "Terminal.ResizePaneRight",
+            "keys": "ctrl+alt+l"
+        },
+        {
+            "id": "Terminal.SwapPaneDown",
+            "keys": "alt+shift+j"
+        },
+        {
+            "id": "Terminal.SwapPaneRight",
+            "keys": "alt+shift+l"
+        },
+        {
+            "id": "Terminal.ResizePaneDown",
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "id": "Terminal.MovePaneToTab2",
+            "keys": "alt+shift+3"
+        },
+        {
+            "id": "Terminal.MovePaneToTab6",
+            "keys": "alt+shift+7"
+        },
+        {
+            "id": "Terminal.DecreaseFontSize",
+            "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.ExportBuffer",
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "id": null,
+            "keys": "win+sc(41)"
+        },
+        {
+            "id": "Terminal.QuakeMode",
+            "keys": "win+\\"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "newTabPosition": "afterCurrentTab",
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "bellStyle": "window",
+            "closeOnExit": "graceful",
+            "colorScheme": 
+            {
+                "dark": "Catppuccin Mocha",
+                "light": "Catppuccin Latte"
+            },
+            "font": 
+            {
+                "face": "JetBrainsMono Nerd Font"
+            },
+            "padding": "0,0,0,0",
+            "pathTranslationStyle": "wsl"
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{cefedc47-25a3-5baf-aa27-fad93c2bd95b}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#303446",
+            "black": "#51576D",
+            "blue": "#8CAAEE",
+            "brightBlack": "#626880",
+            "brightBlue": "#8CAAEE",
+            "brightCyan": "#81C8BE",
+            "brightGreen": "#A6D189",
+            "brightPurple": "#F4B8E4",
+            "brightRed": "#E78284",
+            "brightWhite": "#A5ADCE",
+            "brightYellow": "#E5C890",
+            "cursorColor": "#F2D5CF",
+            "cyan": "#81C8BE",
+            "foreground": "#C6D0F5",
+            "green": "#A6D189",
+            "name": "Catppuccin Frappe",
+            "purple": "#F4B8E4",
+            "red": "#E78284",
+            "selectionBackground": "#626880",
+            "white": "#B5BFE2",
+            "yellow": "#E5C890"
+        },
+        {
+            "background": "#EFF1F5",
+            "black": "#5C5F77",
+            "blue": "#1E66F5",
+            "brightBlack": "#ACB0BE",
+            "brightBlue": "#1E66F5",
+            "brightCyan": "#179299",
+            "brightGreen": "#40A02B",
+            "brightPurple": "#EA76CB",
+            "brightRed": "#D20F39",
+            "brightWhite": "#BCC0CC",
+            "brightYellow": "#DF8E1D",
+            "cursorColor": "#DC8A78",
+            "cyan": "#179299",
+            "foreground": "#4C4F69",
+            "green": "#40A02B",
+            "name": "Catppuccin Latte",
+            "purple": "#EA76CB",
+            "red": "#D20F39",
+            "selectionBackground": "#ACB0BE",
+            "white": "#ACB0BE",
+            "yellow": "#DF8E1D"
+        },
+        {
+            "background": "#24273A",
+            "black": "#494D64",
+            "blue": "#8AADF4",
+            "brightBlack": "#5B6078",
+            "brightBlue": "#8AADF4",
+            "brightCyan": "#8BD5CA",
+            "brightGreen": "#A6DA95",
+            "brightPurple": "#F5BDE6",
+            "brightRed": "#ED8796",
+            "brightWhite": "#A5ADCB",
+            "brightYellow": "#EED49F",
+            "cursorColor": "#F4DBD6",
+            "cyan": "#8BD5CA",
+            "foreground": "#CAD3F5",
+            "green": "#A6DA95",
+            "name": "Catppuccin Macchiato",
+            "purple": "#F5BDE6",
+            "red": "#ED8796",
+            "selectionBackground": "#5B6078",
+            "white": "#B8C0E0",
+            "yellow": "#EED49F"
+        },
+        {
+            "background": "#1E1E2E",
+            "black": "#45475A",
+            "blue": "#89B4FA",
+            "brightBlack": "#585B70",
+            "brightBlue": "#89B4FA",
+            "brightCyan": "#94E2D5",
+            "brightGreen": "#A6E3A1",
+            "brightPurple": "#F5C2E7",
+            "brightRed": "#F38BA8",
+            "brightWhite": "#A6ADC8",
+            "brightYellow": "#F9E2AF",
+            "cursorColor": "#F5E0DC",
+            "cyan": "#94E2D5",
+            "foreground": "#CDD6F4",
+            "green": "#A6E3A1",
+            "name": "Catppuccin Mocha",
+            "purple": "#F5C2E7",
+            "red": "#F38BA8",
+            "selectionBackground": "#585B70",
+            "white": "#BAC2DE",
+            "yellow": "#F9E2AF"
+        }
+    ],
+    "tabWidthMode": "equal",
+    "theme": "system",
+    "themes": 
+    [
+        {
+            "name": "Catppuccin Frappe",
+            "tab": 
+            {
+                "background": "#303446FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#292C3CFF",
+                "unfocusedBackground": "#232634FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "Catppuccin Latte",
+            "tab": 
+            {
+                "background": "#EFF1F5FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#E6E9EFFF",
+                "unfocusedBackground": "#DCE0E8FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "Catppuccin Macchiato",
+            "tab": 
+            {
+                "background": "#24273AFF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#1E2030FF",
+                "unfocusedBackground": "#181926FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "Catppuccin Mocha",
+            "tab": 
+            {
+                "background": "#1E1E2EFF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#181825FF",
+                "unfocusedBackground": "#11111BFF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        }
+    ]
+}

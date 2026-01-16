@@ -1,0 +1,35 @@
+[colors.primary]
+background = "#101010" # bg
+foreground = "#b0b0b0" # fg
+
+[colors.cursor]
+text = "#101010"       # bg
+
+cursor = "#b0b0b0"     # fg
+
+[colors.selection]
+text = "#b0b0b0"       # fg
+background = "#272727" # line
+
+[colors.normal]
+black   = "#181818" # dim
+red     = "#ff7676" # danger
+green   = "#86cd82" # success
+yellow  = "#d9ba73" # const / warning
+blue    = "#0058d0" # highlight
+magenta = "#8ebeec" # info
+cyan    = "#8ebeec" # info
+
+white   = "#b0b0b0" # fg
+
+[colors.bright]
+black   = "#50585d" # comment
+red     = "#ff7676" # danger
+green   = "#86cd82" # success
+
+yellow  = "#d9ba73" # const / warning
+blue    = "#0058d0" # highlight
+
+magenta = "#ffffff" # emphasis / func / string / border
+cyan    = "#8ebeec" # info
+white   = "#ffffff" # emphasis / border

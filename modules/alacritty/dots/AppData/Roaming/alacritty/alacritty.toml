@@ -4,12 +4,8 @@
 live_config_reload = true
 working_directory = "None" # Inherit from parent
 import = [
-  # uncomment the flavour you want below:
-  # "catppuccin-latte.toml",
-  # "catppuccin-frappe.toml",
-  # "catppuccin-macchiato.toml",
-  # "catppuccin-mocha.toml",
-
+  # Load local theme
+  "theme.toml",
   # Load local config
   "alacritty-local.toml",
 ]
@@ -23,6 +19,11 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 size = 12
+
+[keyboard]
+bindings = [
+	{key = "Space", mods = "Control", chars = "\u0000"},
+]
 
 [env]
 TERM = "xterm-256color"

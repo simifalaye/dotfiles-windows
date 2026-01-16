@@ -22,6 +22,7 @@ RunModule -ModuleName "alacritty"
 RunModule -ModuleName "nerd-fonts"
 RunModule -ModuleName "powertoys"
 # RunModule -ModuleName "wezterm"
+# RunModule -ModuleName "windows-terminal"
 RunModule -ModuleName "win32yank"
 RunModule -ModuleName "wsl"
 

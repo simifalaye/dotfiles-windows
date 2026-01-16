@@ -61,7 +61,6 @@ function Test-PendingReboot {
     }
 }
 
-# TODO: Evaluate
 function Stow-Dotfiles {
     param (
         [Parameter(Mandatory = $true)]

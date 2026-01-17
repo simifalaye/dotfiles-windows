@@ -26,11 +26,16 @@ function Setup-ThemeSwitcher {
     -LogonType Interactive `
     -RunLevel Highest
 
+  $settings = New-ScheduledTaskSettingsSet `
+    -AllowStartIfOnBatteries `
+    -DontStopIfGoingOnBatteries
+
   Register-ScheduledTask `
     -TaskName $taskName `
     -Action $action `
     -Trigger $trigger `
     -Principal $principal `
+    -Settings $settings `
     -Description "Switch Alacritty theme based on Windows system theme"
 
   Write-Info "Scheduled task '$taskName' created."

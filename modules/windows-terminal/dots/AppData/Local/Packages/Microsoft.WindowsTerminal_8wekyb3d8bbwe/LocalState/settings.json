@@ -1,36 +1,58 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [],
+    "actions":
+    [
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "auto"
+            },
+            "id": "User.SplitNotesAuto"
+        }
+    ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{cefedc47-25a3-5baf-aa27-fad93c2bd95b}",
     "disableAnimations": true,
-    "keybindings": 
+    "keybindings":
     [
         {
-            "id": "Terminal.SwitchToTab0",
-            "keys": "alt+1"
+            "id": "User.SplitNotesAuto",
+            "keys": "alt+i"
         },
         {
-            "id": "Terminal.CloseWindow",
-            "keys": "alt+f4"
+            "id": "Terminal.SwitchToTab1",
+            "keys": "alt+2"
+        },
+        {
+            "id": "Terminal.SwapPanePrevious",
+            "keys": "alt+shift+comma"
         },
         {
             "id": "Terminal.MovePaneToTab7",
             "keys": "alt+shift+8"
         },
         {
+            "id": "Terminal.CloseWindow",
+            "keys": "alt+f4"
+        },
+        {
+            "id": "Terminal.SwitchToTab0",
+            "keys": "alt+1"
+        },
+        {
             "id": "Terminal.FindText",
             "keys": "ctrl+shift+f"
         },
         {
-            "id": "Terminal.ToggleFullscreen",
-            "keys": "f11"
-        },
-        {
             "id": "Terminal.SwitchToTab3",
             "keys": "alt+4"
+        },
+        {
+            "id": "Terminal.ToggleFullscreen",
+            "keys": "f11"
         },
         {
             "id": "Terminal.NextTab",
@@ -79,14 +101,6 @@
         {
             "id": "Terminal.ScrollUp",
             "keys": "alt+y"
-        },
-        {
-            "id": "Terminal.SwitchToTab1",
-            "keys": "alt+2"
-        },
-        {
-            "id": "Terminal.SwapPanePrevious",
-            "keys": "alt+shift+comma"
         },
         {
             "id": "Terminal.SwitchToTab2",
@@ -257,32 +271,32 @@
             "keys": "win+\\"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
     "newTabPosition": "afterCurrentTab",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
-            "bellStyle": "window",
+            "bellStyle": "none",
             "closeOnExit": "graceful",
-            "colorScheme": 
+            "colorScheme":
             {
-                "dark": "Catppuccin Mocha",
-                "light": "Catppuccin Latte"
+                "dark": "Koda Dark",
+                "light": "Koda Light"
             },
-            "font": 
+            "font":
             {
                 "face": "JetBrainsMono Nerd Font"
             },
             "padding": "0,0,0,0",
             "pathTranslationStyle": "wsl"
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -304,7 +318,7 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#303446",
@@ -397,29 +411,75 @@
             "selectionBackground": "#585B70",
             "white": "#BAC2DE",
             "yellow": "#F9E2AF"
+        },
+        {
+            "background": "#101010",
+            "black": "#000000",
+            "blue": "#458EE6",
+            "brightBlack": "#50585D",
+            "brightBlue": "#8EBEEC",
+            "brightCyan": "#5ABFB5",
+            "brightGreen": "#86CD82",
+            "brightPurple": "#FFFFFF",
+            "brightRed": "#FF7676",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#D0BF41",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#5ABFB5",
+            "foreground": "#B0B0B0",
+            "green": "#14BA19",
+            "name": "Koda Dark",
+            "purple": "#F2A4DB",
+            "red": "#701516",
+            "selectionBackground": "#272727",
+            "white": "#B0B0B0",
+            "yellow": "#D9BA73"
+        },
+        {
+            "background": "#FAF9F5",
+            "black": "#FFFFFF",
+            "blue": "#0A89FF",
+            "brightBlack": "#969BA5",
+            "brightBlue": "#0253BE",
+            "brightCyan": "#5ABFB5",
+            "brightGreen": "#407F00",
+            "brightPurple": "#3D3D3D",
+            "brightRed": "#CA0043",
+            "brightWhite": "#000000",
+            "brightYellow": "#C49102",
+            "cursorColor": "#000000",
+            "cyan": "#5ABFB5",
+            "foreground": "#101010",
+            "green": "#019833",
+            "name": "Koda Light",
+            "purple": "#F2A4DB",
+            "red": "#701516",
+            "selectionBackground": "#EBEBEB",
+            "white": "#101010",
+            "yellow": "#B07700"
         }
     ],
     "tabWidthMode": "equal",
     "theme": "system",
-    "themes": 
+    "themes":
     [
         {
             "name": "Catppuccin Frappe",
-            "tab": 
+            "tab":
             {
                 "background": "#303446FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
+            "tabRow":
             {
                 "background": "#292C3CFF",
                 "unfocusedBackground": "#232634FF"
             },
-            "window": 
+            "window":
             {
-                "applicationTheme": "dark",
+                "applicationTheme": "light",
                 "experimental.rainbowFrame": false,
                 "frame": null,
                 "unfocusedFrame": null,
@@ -428,19 +488,19 @@
         },
         {
             "name": "Catppuccin Latte",
-            "tab": 
+            "tab":
             {
                 "background": "#EFF1F5FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
+            "tabRow":
             {
                 "background": "#E6E9EFFF",
                 "unfocusedBackground": "#DCE0E8FF"
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "light",
                 "experimental.rainbowFrame": false,
@@ -451,19 +511,19 @@
         },
         {
             "name": "Catppuccin Macchiato",
-            "tab": 
+            "tab":
             {
                 "background": "#24273AFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
+            "tabRow":
             {
                 "background": "#1E2030FF",
                 "unfocusedBackground": "#181926FF"
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
@@ -474,21 +534,67 @@
         },
         {
             "name": "Catppuccin Mocha",
-            "tab": 
+            "tab":
             {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
+            "tabRow":
             {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": 
+            "window":
             {
                 "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "Koda Dark",
+            "tab":
+            {
+                "background": "#101010FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow":
+            {
+                "background": "#101010FF",
+                "unfocusedBackground": "#272727FF"
+            },
+            "window":
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "Koda Light",
+            "tab":
+            {
+                "background": "#FAF9F5FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow":
+            {
+                "background": "#FAF9F5FF",
+                "unfocusedBackground": "#EBEBEBFF"
+            },
+            "window":
+            {
+                "applicationTheme": "light",
                 "experimental.rainbowFrame": false,
                 "frame": null,
                 "unfocusedFrame": null,

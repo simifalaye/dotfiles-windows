@@ -22,7 +22,7 @@ size = 12
 
 [keyboard]
 bindings = [
-	{key = "Space", mods = "Control", chars = "\u0000"},
+  {key = "Space", mods = "Control", chars = "\u0000"},
 ]
 
 [env]

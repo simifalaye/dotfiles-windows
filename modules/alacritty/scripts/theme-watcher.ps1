@@ -3,8 +3,8 @@
 #
 
 $themeFile  = "$env:APPDATA\alacritty\theme.toml"
-$darkTheme  = "$env:APPDATA\alacritty\themes\koda-dark.toml"
-$lightTheme = "$env:APPDATA\alacritty\themes\koda-light.toml"
+$darkTheme  = "$env:APPDATA\alacritty\themes\catppuccin-mocha.toml"
+$lightTheme = "$env:APPDATA\alacritty\themes\catppuccin-latte.toml"
 
 #
 # Main

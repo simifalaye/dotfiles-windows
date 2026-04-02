@@ -9,9 +9,16 @@ Stow-Dotfiles -PackageName "alacritty"
 # Setup theme watcher
 $taskName = "Alacritty Theme Watcher"
 $script = "$PSScriptRoot\scripts\theme-watcher.ps1"
+
+function Start-ThemeWatcher {
+  Start-ScheduledTask -TaskName $taskName
+  Write-Info "Started task '$taskName'."
+}
+
 function Setup-ThemeSwitcher {
   if (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue) {
     Write-Info "Scheduled task '$taskName' already exists."
+    Start-ThemeWatcher
     return
   }
 
@@ -40,8 +47,6 @@ function Setup-ThemeSwitcher {
 
   Write-Info "Scheduled task '$taskName' created."
 
-  Start-ScheduledTask -TaskName $taskName
-
-  Write-Info "Started task '$taskName'."
+  Start-ThemeWatcher
 }
 Setup-ThemeSwitcher

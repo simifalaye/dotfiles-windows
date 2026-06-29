@@ -88,17 +88,26 @@ function Stow-Dotfiles {
         $targetPath = Join-Path $TargetDir $relativePath
 
         if (Test-Path $targetPath) {
-            Write-Warning "Skipping existing item: $targetPath"
-        } else {
-            $parentDir = Split-Path $targetPath -Parent
-            if (-not (Test-Path $parentDir)) {
-                New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
+            $item = Get-Item $targetPath -Force
+            if ($item.LinkType -eq 'HardLink' -or $item.LinkType -eq 'SymbolicLink') {
+                # Remove the link
+                Remove-Item $targetPath -Force
+                Write-Host "Removed link: $relativePath"
+            } else {
+                Write-Warning "Skipping existing item: $targetPath"
+                return
             }
-
-            # Create a symbolic link for the file
-            cmd /c "mklink `"$targetPath`" `"$sourcePath`"" | Out-Null
-            Write-Host "Linked file: $relativePath"
         }
+
+        $parentDir = Split-Path $targetPath -Parent
+        if (-not (Test-Path $parentDir)) {
+            New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
+        }
+        # # Create a symbolic link for the file
+        # cmd /c "mklink `"$targetPath`" `"$sourcePath`"" | Out-Null
+        # Create a hard link for the file
+        cmd /c "mklink /H `"$targetPath`" `"$sourcePath`"" | Out-Null
+        Write-Host "Linked file: $relativePath"
     }
 }
 
@@ -130,12 +139,19 @@ function Unstow-Dotfiles {
 
         if (Test-Path $targetPath) {
             $item = Get-Item $targetPath -Force
-            if ($item.LinkType -eq 'SymbolicLink') {
-                # Remove the symbolic link
+            # if ($item.LinkType -eq 'SymbolicLink') {
+            #     # Remove the symbolic link
+            #     Remove-Item $targetPath -Force
+            #     Write-Host "Removed link: $relativePath"
+            # } else {
+            #     Write-Warning "Not a symbolic link, skipping: $targetPath"
+            # }
+            if ($item.LinkType -eq 'HardLink' -or $item.LinkType -eq 'SymbolicLink') {
+                # Remove the link
                 Remove-Item $targetPath -Force
                 Write-Host "Removed link: $relativePath"
             } else {
-                Write-Warning "Not a symbolic link, skipping: $targetPath"
+                Write-Warning "Not a link, skipping: $targetPath"
             }
         } else {
             Write-Warning "Target does not exist, skipping: $targetPath"

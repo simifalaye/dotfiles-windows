@@ -5,7 +5,7 @@ live_config_reload = true
 working_directory = "None" # Inherit from parent
 import = [
   # Load local theme
-  "theme.toml",
+  # "theme.toml",
   # Load local config
   "alacritty-local.toml",
 ]

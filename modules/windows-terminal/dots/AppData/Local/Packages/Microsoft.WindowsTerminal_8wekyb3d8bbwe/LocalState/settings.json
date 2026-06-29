@@ -3,11 +3,16 @@
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions":
     [
+        { "command": "tabSearch", "id": "User.TabSearch" },
+        { "command": { "action": "prevTab", "tabSwitcherMode": "mru" }, "id": "User.PrevTabMru" },
+        { "command": { "action": "nextTab", "tabSwitcherMode": "mru" }, "id": "User.NextTabMru" },
         {
             "command":
             {
                 "action": "splitPane",
-                "split": "auto"
+                "split": "auto",
+                "profile": "Ubuntu",
+                "commandline": "wsl.exe -d Ubuntu --cd ~/notes zsh -lic 'nvim'"
             },
             "id": "User.SplitNotesAuto"
         }
@@ -16,31 +21,40 @@
     "copyOnSelect": false,
     "defaultProfile": "{cefedc47-25a3-5baf-aa27-fad93c2bd95b}",
     "disableAnimations": true,
+    "historySize": 20000,
     "keybindings":
     [
+        { "keys": "ctrl+shift+m", "id": "Terminal.ToggleMarkMode" },
         {
-            "id": "User.SplitNotesAuto",
-            "keys": "alt+i"
+            "id" : null, "keys" : ["ctrl+v"]
+        },
+        {
+            "id": "Terminal.ExportBuffer",
+            "keys": "alt+`"
+        },
+        {
+            "id": "Terminal.SwapPaneFirst",
+            "keys": "alt+,"
         },
         {
             "id": "Terminal.SwitchToTab1",
             "keys": "alt+2"
         },
         {
-            "id": "Terminal.SwapPanePrevious",
-            "keys": "alt+shift+comma"
+            "id": "User.SplitNotesAuto",
+            "keys": "alt+o"
         },
         {
-            "id": "Terminal.MovePaneToTab7",
-            "keys": "alt+shift+8"
+            "id": "Terminal.SwitchToTab0",
+            "keys": "alt+1"
         },
         {
             "id": "Terminal.CloseWindow",
             "keys": "alt+f4"
         },
         {
-            "id": "Terminal.SwitchToTab0",
-            "keys": "alt+1"
+            "id": "Terminal.MovePaneToTab7",
+            "keys": "alt+shift+8"
         },
         {
             "id": "Terminal.FindText",
@@ -88,11 +102,23 @@
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
-            "keys": "alt+n"
+            "keys": "alt+/"
         },
         {
-            "id": "Terminal.OpenNewTab",
-            "keys": "alt+t"
+            "id": "Terminal.DuplicateTab",
+            "keys": "alt+c"
+        },
+        {
+            "id": "User.TabSearch",
+            "keys": "alt+;"
+        },
+        {
+            "id": "User.PrevTabMru",
+            "keys": "alt+,"
+        },
+        {
+            "id": "User.NextTabMru",
+            "keys": "alt+."
         },
         {
             "id": "Terminal.PrevTab",
@@ -160,7 +186,7 @@
         },
         {
             "id": "Terminal.DuplicatePaneDown",
-            "keys": "alt+minus"
+            "keys": "alt+s"
         },
         {
             "id": "Terminal.MovePaneToTab1",
@@ -168,7 +194,7 @@
         },
         {
             "id": "Terminal.DuplicatePaneRight",
-            "keys": "alt+\\"
+            "keys": "alt+v"
         },
         {
             "id": "Terminal.ClosePane",
@@ -188,7 +214,7 @@
         },
         {
             "id": "Terminal.RestartConnection",
-            "keys": "alt+plus"
+            "keys": "alt+shift+r"
         },
         {
             "id": "Terminal.ScrollDown",
@@ -216,7 +242,7 @@
         },
         {
             "id": "Terminal.MoveFocusPrevious",
-            "keys": "alt+comma"
+            "keys": "alt+\\"
         },
         {
             "id": "Terminal.ScrollUpPage",
@@ -286,8 +312,8 @@
             "closeOnExit": "graceful",
             "colorScheme":
             {
-                "dark": "Koda Dark",
-                "light": "Koda Light"
+                "dark": "Tokyo Night",
+                "light": "Tokyo Night Day"
             },
             "font":
             {
@@ -311,6 +337,7 @@
                 "name": "Command Prompt"
             },
             {
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
                 "guid": "{cefedc47-25a3-5baf-aa27-fad93c2bd95b}",
                 "hidden": false,
                 "name": "Ubuntu",
@@ -321,283 +348,162 @@
     "schemes":
     [
         {
-            "background": "#303446",
-            "black": "#51576D",
-            "blue": "#8CAAEE",
-            "brightBlack": "#626880",
-            "brightBlue": "#8CAAEE",
-            "brightCyan": "#81C8BE",
-            "brightGreen": "#A6D189",
-            "brightPurple": "#F4B8E4",
-            "brightRed": "#E78284",
-            "brightWhite": "#A5ADCE",
-            "brightYellow": "#E5C890",
-            "cursorColor": "#F2D5CF",
-            "cyan": "#81C8BE",
-            "foreground": "#C6D0F5",
-            "green": "#A6D189",
-            "name": "Catppuccin Frappe",
-            "purple": "#F4B8E4",
-            "red": "#E78284",
-            "selectionBackground": "#626880",
-            "white": "#B5BFE2",
-            "yellow": "#E5C890"
+            "background": "#e1e2e7",
+            "black": "#b4b5b9",
+            "blue": "#2e7de9",
+            "brightBlack": "#a1a6c5",
+            "brightBlue": "#2e7de9",
+            "brightCyan": "#007197",
+            "brightGreen": "#587539",
+            "brightPurple": "#7847bd",
+            "brightRed": "#f52a65",
+            "brightWhite": "#3760bf",
+            "brightYellow": "#8c6c3e",
+            "cursorColor": "#3760bf",
+            "cyan": "#007197",
+            "foreground": "#3760bf",
+            "green": "#587539",
+            "name": "Tokyo Night Day",
+            "purple": "#9854f1",
+            "red": "#f52a65",
+            "selectionBackground": "#b7c1e3",
+            "white": "#6172b0",
+            "yellow": "#8c6c3e"
         },
         {
-            "background": "#EFF1F5",
-            "black": "#5C5F77",
-            "blue": "#1E66F5",
-            "brightBlack": "#ACB0BE",
-            "brightBlue": "#1E66F5",
-            "brightCyan": "#179299",
-            "brightGreen": "#40A02B",
-            "brightPurple": "#EA76CB",
-            "brightRed": "#D20F39",
-            "brightWhite": "#BCC0CC",
-            "brightYellow": "#DF8E1D",
-            "cursorColor": "#DC8A78",
-            "cyan": "#179299",
-            "foreground": "#4C4F69",
-            "green": "#40A02B",
-            "name": "Catppuccin Latte",
-            "purple": "#EA76CB",
-            "red": "#D20F39",
-            "selectionBackground": "#ACB0BE",
-            "white": "#ACB0BE",
-            "yellow": "#DF8E1D"
+            "background": "#222436",
+            "black": "#1b1d2b",
+            "blue": "#82aaff",
+            "brightBlack": "#444a73",
+            "brightBlue": "#82aaff",
+            "brightCyan": "#86e1fc",
+            "brightGreen": "#c3e88d",
+            "brightPurple": "#fca7ea",
+            "brightRed": "#ff757f",
+            "brightWhite": "#c8d3f5",
+            "brightYellow": "#ffc777",
+            "cursorColor": "#c8d3f5",
+            "cyan": "#86e1fc",
+            "foreground": "#c8d3f5",
+            "green": "#c3e88d",
+            "name": "Tokyo Night Moon",
+            "purple": "#c099ff",
+            "red": "#ff757f",
+            "selectionBackground": "#2d3f76",
+            "white": "#828bb8",
+            "yellow": "#ffc777"
         },
         {
-            "background": "#24273A",
-            "black": "#494D64",
-            "blue": "#8AADF4",
-            "brightBlack": "#5B6078",
-            "brightBlue": "#8AADF4",
-            "brightCyan": "#8BD5CA",
-            "brightGreen": "#A6DA95",
-            "brightPurple": "#F5BDE6",
-            "brightRed": "#ED8796",
-            "brightWhite": "#A5ADCB",
-            "brightYellow": "#EED49F",
-            "cursorColor": "#F4DBD6",
-            "cyan": "#8BD5CA",
-            "foreground": "#CAD3F5",
-            "green": "#A6DA95",
-            "name": "Catppuccin Macchiato",
-            "purple": "#F5BDE6",
-            "red": "#ED8796",
-            "selectionBackground": "#5B6078",
-            "white": "#B8C0E0",
-            "yellow": "#EED49F"
+            "background": "#1a1b26",
+            "black": "#15161e",
+            "blue": "#7aa2f7",
+            "brightBlack": "#414868",
+            "brightBlue": "#7aa2f7",
+            "brightCyan": "#7dcfff",
+            "brightGreen": "#9ece6a",
+            "brightPurple": "#9d7cd8",
+            "brightRed": "#f7768e",
+            "brightWhite": "#c0caf5",
+            "brightYellow": "#e0af68",
+            "cursorColor": "#c0caf5",
+            "cyan": "#7dcfff",
+            "foreground": "#c0caf5",
+            "green": "#9ece6a",
+            "name": "Tokyo Night",
+            "purple": "#bb9af7",
+            "red": "#f7768e",
+            "selectionBackground": "#283457",
+            "white": "#a9b1d6",
+            "yellow": "#e0af68"
         },
         {
-            "background": "#1E1E2E",
-            "black": "#45475A",
-            "blue": "#89B4FA",
-            "brightBlack": "#585B70",
-            "brightBlue": "#89B4FA",
-            "brightCyan": "#94E2D5",
-            "brightGreen": "#A6E3A1",
-            "brightPurple": "#F5C2E7",
-            "brightRed": "#F38BA8",
-            "brightWhite": "#A6ADC8",
-            "brightYellow": "#F9E2AF",
-            "cursorColor": "#F5E0DC",
-            "cyan": "#94E2D5",
-            "foreground": "#CDD6F4",
-            "green": "#A6E3A1",
-            "name": "Catppuccin Mocha",
-            "purple": "#F5C2E7",
-            "red": "#F38BA8",
-            "selectionBackground": "#585B70",
-            "white": "#BAC2DE",
-            "yellow": "#F9E2AF"
-        },
-        {
-            "background": "#101010",
-            "black": "#000000",
-            "blue": "#458EE6",
-            "brightBlack": "#50585D",
-            "brightBlue": "#8EBEEC",
-            "brightCyan": "#5ABFB5",
-            "brightGreen": "#86CD82",
-            "brightPurple": "#FFFFFF",
-            "brightRed": "#FF7676",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#D0BF41",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#5ABFB5",
-            "foreground": "#B0B0B0",
-            "green": "#14BA19",
-            "name": "Koda Dark",
-            "purple": "#F2A4DB",
-            "red": "#701516",
-            "selectionBackground": "#272727",
-            "white": "#B0B0B0",
-            "yellow": "#D9BA73"
-        },
-        {
-            "background": "#FAF9F5",
-            "black": "#FFFFFF",
-            "blue": "#0A89FF",
-            "brightBlack": "#969BA5",
-            "brightBlue": "#0253BE",
-            "brightCyan": "#5ABFB5",
-            "brightGreen": "#407F00",
-            "brightPurple": "#3D3D3D",
-            "brightRed": "#CA0043",
-            "brightWhite": "#000000",
-            "brightYellow": "#C49102",
-            "cursorColor": "#000000",
-            "cyan": "#5ABFB5",
-            "foreground": "#101010",
-            "green": "#019833",
-            "name": "Koda Light",
-            "purple": "#F2A4DB",
-            "red": "#701516",
-            "selectionBackground": "#EBEBEB",
-            "white": "#101010",
-            "yellow": "#B07700"
+            "background": "#24283b",
+            "black": "#1d202f",
+            "blue": "#7aa2f7",
+            "brightBlack": "#414868",
+            "brightBlue": "#7aa2f7",
+            "brightCyan": "#7dcfff",
+            "brightGreen": "#9ece6a",
+            "brightPurple": "#9d7cd8",
+            "brightRed": "#f7768e",
+            "brightWhite": "#c0caf5",
+            "brightYellow": "#e0af68",
+            "cursorColor": "#c0caf5",
+            "cyan": "#7dcfff",
+            "foreground": "#c0caf5",
+            "green": "#9ece6a",
+            "name": "Tokyo Night Storm",
+            "purple": "#bb9af7",
+            "red": "#f7768e",
+            "selectionBackground": "#2e3c64",
+            "white": "#a9b1d6",
+            "yellow": "#e0af68"
         }
     ],
     "tabWidthMode": "equal",
     "theme": "system",
-    "themes":
-    [
+    "themes": [
         {
-            "name": "Catppuccin Frappe",
-            "tab":
-            {
-                "background": "#303446FF",
-                "iconStyle": "default",
+            "name": "Tokyo Night Day",
+            "tab": {
+                "background": "#e1e2e7FF",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow":
-            {
-                "background": "#292C3CFF",
-                "unfocusedBackground": "#232634FF"
+            "tabRow": {
+                "background": "#d1d3d9FF",
+                "unfocusedBackground": "#c5c8d1FF"
             },
-            "window":
-            {
+            "window": {
                 "applicationTheme": "light",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
                 "useMica": false
             }
         },
         {
-            "name": "Catppuccin Latte",
-            "tab":
-            {
-                "background": "#EFF1F5FF",
-                "iconStyle": "default",
+            "name": "Tokyo Night Moon",
+            "tab": {
+                "background": "#222436FF",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow":
-            {
-                "background": "#E6E9EFFF",
-                "unfocusedBackground": "#DCE0E8FF"
+            "tabRow": {
+                "background": "#2a2d44FF",
+                "unfocusedBackground": "#222436FF"
             },
-            "window":
-            {
-                "applicationTheme": "light",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
-                "useMica": false
-            }
-        },
-        {
-            "name": "Catppuccin Macchiato",
-            "tab":
-            {
-                "background": "#24273AFF",
-                "iconStyle": "default",
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "tabRow":
-            {
-                "background": "#1E2030FF",
-                "unfocusedBackground": "#181926FF"
-            },
-            "window":
-            {
+            "window": {
                 "applicationTheme": "dark",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
                 "useMica": false
             }
         },
         {
-            "name": "Catppuccin Mocha",
-            "tab":
-            {
-                "background": "#1E1E2EFF",
-                "iconStyle": "default",
+            "name": "Tokyo Night",
+            "tab": {
+                "background": "#1a1b26FF",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow":
-            {
-                "background": "#181825FF",
-                "unfocusedBackground": "#11111BFF"
+            "tabRow": {
+                "background": "#242533FF",
+                "unfocusedBackground": "#1a1b26FF"
             },
-            "window":
-            {
+            "window": {
                 "applicationTheme": "dark",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
                 "useMica": false
             }
         },
         {
-            "name": "Koda Dark",
-            "tab":
-            {
-                "background": "#101010FF",
-                "iconStyle": "default",
+            "name": "Tokyo Night Storm",
+            "tab": {
+                "background": "#24283bff",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow":
-            {
-                "background": "#101010FF",
-                "unfocusedBackground": "#272727FF"
+            "tabRow": {
+                "background": "#2d3249FF",
+                "unfocusedBackground": "#24283bFF"
             },
-            "window":
-            {
+            "window": {
                 "applicationTheme": "dark",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
-                "useMica": false
-            }
-        },
-        {
-            "name": "Koda Light",
-            "tab":
-            {
-                "background": "#FAF9F5FF",
-                "iconStyle": "default",
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "tabRow":
-            {
-                "background": "#FAF9F5FF",
-                "unfocusedBackground": "#EBEBEBFF"
-            },
-            "window":
-            {
-                "applicationTheme": "light",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
                 "useMica": false
             }
         }

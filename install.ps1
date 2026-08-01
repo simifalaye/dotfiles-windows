@@ -17,12 +17,13 @@ function RunModule {
 
 RunModule -ModuleName "settings"
 RunModule -ModuleName "default-apps"
+
 RunModule -ModuleName "alacritty"
-# RunModule -ModuleName "chrome"
+RunModule -ModuleName "neovide"
 RunModule -ModuleName "nerd-fonts"
-RunModule -ModuleName "powertoys"
+# RunModule -ModuleName "powertoys"
 # RunModule -ModuleName "wezterm"
-# RunModule -ModuleName "windows-terminal"
+RunModule -ModuleName "windows-terminal"
 RunModule -ModuleName "win32yank"
 RunModule -ModuleName "wsl"
 

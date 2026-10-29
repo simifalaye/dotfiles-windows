@@ -1,3 +1,5 @@
+**This repo is no longer used/maintained and has been moved to: [here](https://github.com/simifalaye/dots)**
+
 <h1 align="center">Dotfiles Windows</h1>
 <p align="center">My dotfiles for windows</p>
 <p align="center">
